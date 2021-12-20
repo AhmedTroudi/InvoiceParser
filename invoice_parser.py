@@ -39,9 +39,9 @@ if __name__ == '__main__':
                         help="specifies image local path (includes filename) or url")
     parser.add_argument('--credentials', '-c', type=str, required=False, default='credentials.json',
                         help="specifies path to credentials (includes filename)")
-    parser.add_argument('--output_path', '-o', type=str, required=False, default='data.json',
-                        help="specifies data local output path, by default saves 'data.json' to project directory")
-    parser.add_argument('--n_cluster', '-n', type=int, required=False, default=3,
+    parser.add_argument('--output_path', '-o', type=str, required=False, default='data.csv',
+                        help="specifies data local output path, by default saves 'data.csv' to project directory")
+    parser.add_argument('--n_clusters', '-n', type=int, required=False, default=3,
                         help="indicates number of clusters to use. You can disable clustering by using a value of 0")
 
     arguments = parser.parse_args()
