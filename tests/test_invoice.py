@@ -1,8 +1,7 @@
 import sys
-# would usually avoid this by restructuring the project using poetry but for simplicity
+# would usually avoid this by restructuring the project using poetry or something similar for simplicity
 # and due to time constraints I stuck with this approach
 sys.path.append('src')
-print(sys.path)
 from src.invoice import Invoice
 
 

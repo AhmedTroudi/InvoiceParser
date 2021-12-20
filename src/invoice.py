@@ -31,12 +31,12 @@ class Invoice:
         logging.info(f'Customer Address: {self.customer_address}')
 
     def parse_loan_balance(self):
-        rx_loan_balance = re.compile(r'(?P<loan_key>[s]kuld\D+)(?P<loan_value>(\d\s?[.]?)+(,|[.]|\s)?\d+)')
+        rx_loan_balance = re.compile(r'(?P<loan_key>Skuld\D+)(?P<loan_value>(\d\s?[.]?)+(,|[.]|\s)?\d+)')
 
         loan_balance_obj = re.search(rx_loan_balance, self.structured_text)
         if loan_balance_obj is not None:
             self.loan_balance['key'] = loan_balance_obj.group('loan_key')
-            self.loan_balance['value'] = loan_balance_obj.group('loan_value')
+            self.loan_balance['value'] = loan_balance_obj.group('loan_value').replace(',', '.').replace(' ', '')
         logging.info(f'Loan Balance: {self.loan_balance}')
 
     def parse_payment_amount(self):
