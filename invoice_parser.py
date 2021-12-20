@@ -1,9 +1,7 @@
-import json
-
 import pandas as pd
 
 from src.utils import get_credentials
-from src.read_image import VisionClient
+from src.vision_client import VisionClient
 from src.process_text import restructure_text
 from src.invoice import Invoice
 import logging
