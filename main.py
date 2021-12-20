@@ -4,7 +4,8 @@ import pandas as pd
 
 from src.utils import get_credentials
 from src.read_image import VisionClient
-from src.process_text import restructure_text, parse_invoice
+from src.process_text import restructure_text
+from src.invoice import Invoice
 import logging
 
 
@@ -18,7 +19,8 @@ def main():
     vision_client = VisionClient(endpoint, key)
     ocr_result = vision_client.read_image(image_path)
     structured_text = restructure_text(ocr_result)
-    data = parse_invoice(structured_text)
+    invoice = Invoice(structured_text)
+    data = invoice.get_invoice_data()
     with open('data.json', 'w+') as f:
         json.dump(data, f)
     df = pd.DataFrame(data, index=[0])
