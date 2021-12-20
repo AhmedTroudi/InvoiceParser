@@ -1,6 +1,9 @@
 [![Python 3.7](https://img.shields.io/badge/python-3.7-blue.svg)](https://www.python.org/downloads/release/python-360/)
 # InvoiceParser
-Using Azure Computer Vision API and pattern matching to extract text information from Images/PDFs
+Using Azure Computer Vision API and pattern matching to extract text information from Images/PDFs.
+
+The plan is to eventually add templates that contain regex patterns for different document structures
+, and allow the user to provide his own templates. 
 
 ## Prerequisites
 - An Azure subscription: Create one [here](https://azure.microsoft.com/en-us/free/cognitive-services/) for free.

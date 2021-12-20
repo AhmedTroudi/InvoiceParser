@@ -14,7 +14,7 @@ def restructure_text(ocr_result: ReadOperationResult, n_clusters: int) -> str:
     """
     # Retrieve the lines and their bounding boxes from the API into a dictionary
     if n_clusters > 0:
-        logging.info("Clustering text using bounding boxes information")
+        logging.info("Clustering text using bounding boxes information...")
         d = {line.text: line.bounding_box for res in ocr_result.analyze_result.read_results for line in res.lines}
         df_tmp = pd.DataFrame(d.items(), columns=['Lines', 'Coordinates'])
         df = pd.DataFrame(df_tmp['Coordinates'].to_list(),
@@ -28,7 +28,7 @@ def restructure_text(ocr_result: ReadOperationResult, n_clusters: int) -> str:
         flattened_doc = list(itertools.chain(*document))
         structured_text = "\n ".join(sorted(set(flattened_doc), key=flattened_doc.index))
     else:  # clustering disabled
-        logging.info("Clustering is disabled, collecting text as is")
+        logging.info("Clustering is disabled, collecting text as is...")
         text = [line.text.replace(",", ".") for text_result in ocr_result.analyze_result.read_results
                 for line in text_result.lines]
         structured_text = ",".join(text)
